@@ -187,13 +187,12 @@ for (let i = 0; i < starWarsCharacters.length; i++) {
   Usa un while loop per calcolare la massa totale dell'equipaggio
 */
 
-//starWarsCharacters[i].mass
-
 let i = 0;
 let totalMass = 0;
 
 while (i < starWarsCharacters.length) {
   totalMass += Number(starWarsCharacters[i].mass);
+  // riga sopra identica a: totalMass = totalMass + Number(starWarsCharacters[i].mass);
   i++;
 }
 
@@ -223,13 +222,13 @@ switch (true) {
   case totalMass <= 700: //riga in più
     console.log("totalMass < 700");
     break;
-  case totalMass > 700:
+  case totalMass >= 700:
     console.log("Warning: Load is over 700");
     break;
-  case totalMass > 900:
+  case totalMass >= 900:
     console.log("Critical Load: Over 900");
     break;
-  case totalMass > 1000:
+  case totalMass >= 1000:
     console.log("DANGER! OVERLOAD ALERT: Jump ship now!");
     break;
 }
@@ -238,6 +237,14 @@ switch (true) {
 
 Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi creare un nuovo array, o tentare la riassegnazione del valore corrispondente)
 */
+
+for (let i = 0; 1 < starWarsCharacters.length; i++) {
+  if (starWarsCharacters[i].gender === "n/a") {
+    starWarsCharacters[i].gender = "robot";
+  }
+}
+
+console.log(starWarsCharacters);
 
 /* EXTRA ESERCIZIO 9
 
