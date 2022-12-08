@@ -120,7 +120,7 @@ for (let i = 0; i < starWarsCharacters.length; i++) {
   characters.push(starWarsCharacters[i].name);
 }
 
-//console.log(characters)
+//console.log(characters);
 
 /* ESERCIZIO 3
   Seguendo i passaggi precedenti crea un array chiamato "femaleCharacters" e inserisci solo oggetti di personaggi femminili con questa struttura di esempio: 
@@ -214,22 +214,22 @@ Una volta fatto, modifica la massa di qualche elemento dell'equipaggio e vedi se
 
 switch (true) {
   case totalMass < 500:
-    console.log("Ship is under loade");
+    //console.log("Ship is under loade");
     break;
   case totalMass === 500:
-    console.log("Ship is half loaded");
+    //console.log("Ship is half loaded");
     break;
   case totalMass <= 700: //riga in più
-    console.log("totalMass < 700");
+    //console.log("totalMass < 700");
     break;
   case totalMass >= 700:
-    console.log("Warning: Load is over 700");
+    //console.log("Warning: Load is over 700");
     break;
   case totalMass >= 900:
-    console.log("Critical Load: Over 900");
+    //console.log("Critical Load: Over 900");
     break;
   case totalMass >= 1000:
-    console.log("DANGER! OVERLOAD ALERT: Jump ship now!");
+    //console.log("DANGER! OVERLOAD ALERT: Jump ship now!");
     break;
 }
 
@@ -238,17 +238,18 @@ switch (true) {
 Usa un for loop per cambiare il valore della proprietà "gender" di alcuni personaggi dal valore "n/a" a "robot" (Tip: puoi creare un nuovo array, o tentare la riassegnazione del valore corrispondente)
 */
 
-for (let i = 0; 1 < starWarsCharacters.length; i++) {
-  if (starWarsCharacters[i].gender === "n/a") {
-    starWarsCharacters[i].gender = "robot";
-  }
-}
+//for (let i = 0; 1 < starWarsCharacters.length; i++) {
+//  if (starWarsCharacters[i].gender === "n/a") {
+//    starWarsCharacters[i].gender = "robot";
+//  }
+// }
 
-console.log(starWarsCharacters);
+//console.log(starWarsCharacters);
 
 /* EXTRA ESERCIZIO 9
 
-Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "characters" le stringhe corrispondenti a personaggi con lo stesso nome"
+Utilizzando gli elementi presenti nell'array "femaleCharacters" rimuovi dall'array "characters"
+le stringhe corrispondenti a personaggi con lo stesso nome"
 Usa uno più for loop per raggiungere il risultato
 
 (tip: cerca un metodo degli array per rimuovere un elemento)
@@ -256,7 +257,91 @@ Usa uno più for loop per raggiungere il risultato
 Una volta fatto, crea un console.log() per controllare la proprietà length di "characters" prima e dopo l'operazione
 */
 
+//console.log("Before", starWarsCharacters.length);
+
+for (let i = 0; i < starWarsCharacters.length; i++) {
+  for (let j = 0; j < femaleCharacters.length; j++) {
+    if (femaleCharacters[j].name === starWarsCharacters[i].name) {
+      starWarsCharacters.splice(i, 1);
+    }
+  }
+}
+
+//console.log("after", starWarsCharacters.length);
+
 /* EXTRA ESERCIZIO 10
 
-Crea una funzionalità che prenda un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo
+Crea una funzionalità che prenda un elemento casuale dall'array "starWarsCharacters"
+e ne stampi in console le proprietà in modo discorsivo
 */
+
+let num = Math.floor(Math.random() * starWarsCharacters.length);
+console.log(num);
+
+const person = starWarsCharacters[num];
+console.log(person);
+
+let gender = null;
+
+if (person.gender === "female") {
+  gender = "f";
+} else if (person.gender === "male") {
+  gender = "m";
+} else if (person.gender === "n/a") {
+  gender = "o";
+}
+
+let capelli = null;
+
+if (person.hair_color == "n/a") {
+  capelli = "questo personaggio non ha i capelli";
+} else {
+  capelli = "il colore dei capelli è" + person.hair_color;
+}
+
+if (gender === "f") {
+  console.log(
+    person.name,
+    " è una donna",
+    person.skin_color,
+    capelli,
+    " e gli occhi",
+    person.eye_color,
+    ". E' alta",
+    person.height,
+    " e pesa",
+    person.mass,
+    ". E' nata nel",
+    person.birth_year
+  );
+} else if (gender === "m") {
+  console.log(
+    person.name,
+    " è un uomo",
+    person.skin_color,
+    capelli,
+    " e gli occhi",
+    person.eye_color,
+    ". E' alto",
+    person.height,
+    " e pesa",
+    person.mass,
+    ". E' nato nel",
+    person.birth_year
+  );
+} else {
+  console.log(
+    person.name,
+    " è un robot",
+    person.skin_color,
+    capelli,
+    " e gli occhi",
+    person.eye_color,
+    ". E' alto",
+    person.height,
+    " e pesa",
+    person.mass,
+    ". E' stato costruito nel",
+    person.birth_year
+  );
+}
